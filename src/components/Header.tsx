@@ -34,10 +34,16 @@ const Header = () => {
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8">
             <button 
-              onClick={() => scrollToSection("libro")}
+              onClick={() => scrollToSection("synopsis")}
               className="text-foreground/80 hover:text-primary transition-colors font-display text-sm tracking-wider"
             >
-              Il Libro
+              Synopsis
+            </button>
+            <button 
+              onClick={() => scrollToSection("book")}
+              className="text-foreground/80 hover:text-primary transition-colors font-display text-sm tracking-wider"
+            >
+              The Book
             </button>
             <button 
               onClick={() => scrollToSection("crowdfunding")}
@@ -50,7 +56,7 @@ const Header = () => {
               size="sm"
               onClick={() => scrollToSection("crowdfunding")}
             >
-              Sostieni Ora
+              Support Now
             </Button>
           </nav>
           
@@ -69,10 +75,16 @@ const Header = () => {
           <nav className="md:hidden py-4 border-t border-border">
             <div className="flex flex-col gap-4">
               <button 
-                onClick={() => scrollToSection("libro")}
+                onClick={() => scrollToSection("synopsis")}
                 className="text-foreground/80 hover:text-primary transition-colors font-display text-sm tracking-wider text-left py-2"
               >
-                Il Libro
+                Synopsis
+              </button>
+              <button 
+                onClick={() => scrollToSection("book")}
+                className="text-foreground/80 hover:text-primary transition-colors font-display text-sm tracking-wider text-left py-2"
+              >
+                The Book
               </button>
               <button 
                 onClick={() => scrollToSection("crowdfunding")}
@@ -84,7 +96,7 @@ const Header = () => {
                 variant="hero" 
                 onClick={() => scrollToSection("crowdfunding")}
               >
-                Sostieni Ora
+                Support Now
               </Button>
             </div>
           </nav>

@@ -4,25 +4,25 @@ import { Gift, BookOpen, Star, Crown } from "lucide-react";
 const tiers = [
   {
     icon: BookOpen,
-    name: "Lettore",
-    price: "15€",
-    description: "Una copia digitale del romanzo",
-    features: ["eBook in formato ePub e PDF", "Accesso anticipato alla lettura", "Ringraziamenti nel libro"],
+    name: "Reader",
+    price: "€15",
+    description: "A digital copy of the novel",
+    features: ["eBook in ePub and PDF format", "Early access to reading", "Acknowledgment in the book"],
   },
   {
     icon: Star,
-    name: "Sostenitore",
-    price: "30€",
-    description: "Copia cartacea + digitale",
-    features: ["Libro cartaceo firmato", "eBook in tutti i formati", "Segnalibro esclusivo", "Ringraziamenti speciali"],
+    name: "Supporter",
+    price: "€30",
+    description: "Paperback + digital copy",
+    features: ["Signed paperback", "eBook in all formats", "Exclusive bookmark", "Special acknowledgment"],
     popular: true,
   },
   {
     icon: Crown,
-    name: "Mecenate",
-    price: "75€",
-    description: "Edizione da collezione",
-    features: ["Edizione limitata numerata", "Poster della copertina", "Un tuo nome nel romanzo", "Tutti i bonus precedenti"],
+    name: "Patron",
+    price: "€75",
+    description: "Collector's edition",
+    features: ["Limited numbered edition", "Cover poster", "Your name in the novel", "All previous bonuses"],
   },
 ];
 
@@ -36,14 +36,14 @@ const CrowdfundingSection = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-sm mb-6">
             <Gift className="w-4 h-4 text-primary" />
-            <span className="text-primary font-display text-sm tracking-wider">Crowdfunding Attivo</span>
+            <span className="text-primary font-display text-sm tracking-wider">Crowdfunding Active</span>
           </div>
           
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
-            Sostieni <span className="text-gradient-fire">MAX DANGER</span>
+            Support <span className="text-gradient-fire">MAX DANGER</span>
           </h2>
           <p className="text-muted-foreground font-body text-lg max-w-2xl mx-auto">
-            Diventa parte di questa avventura. Scegli il tuo livello di supporto e aiutami a portare Max Danger nelle librerie.
+            Become part of this adventure. Choose your support level and help me bring Max Danger to bookstores.
           </p>
         </div>
         
@@ -59,7 +59,7 @@ const CrowdfundingSection = () => {
             >
               {tier.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-fire text-primary-foreground text-xs font-display tracking-wider rounded-sm">
-                  Più Popolare
+                  Most Popular
                 </div>
               )}
               
@@ -87,7 +87,7 @@ const CrowdfundingSection = () => {
                 className="w-full"
                 size="lg"
               >
-                Scegli {tier.name}
+                Choose {tier.name}
               </Button>
             </div>
           ))}
@@ -95,13 +95,13 @@ const CrowdfundingSection = () => {
         
         <div className="mt-16 text-center">
           <p className="text-muted-foreground font-body mb-4">
-            Hai domande sul crowdfunding? Contattami direttamente.
+            Have questions about the crowdfunding? Contact me directly.
           </p>
           <a 
-            href="mailto:contatto@example.com" 
+            href="mailto:contact@example.com" 
             className="text-primary hover:text-accent transition-colors font-display tracking-wider"
           >
-            contatto@example.com
+            contact@example.com
           </a>
         </div>
       </div>

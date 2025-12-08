@@ -8,19 +8,19 @@ const Footer = () => {
               MAX DANGER
             </h3>
             <p className="text-muted-foreground text-sm">
-              © 2025 Massimiliano Roberto. Tutti i diritti riservati.
+              © 2025 Massimiliano Roberto. All rights reserved.
             </p>
           </div>
           
           <nav className="flex gap-8">
-            <a href="#libro" className="text-muted-foreground hover:text-primary transition-colors font-display text-sm tracking-wider">
-              Il Libro
+            <a href="#book" className="text-muted-foreground hover:text-primary transition-colors font-display text-sm tracking-wider">
+              The Book
             </a>
             <a href="#crowdfunding" className="text-muted-foreground hover:text-primary transition-colors font-display text-sm tracking-wider">
               Crowdfunding
             </a>
-            <a href="mailto:contatto@example.com" className="text-muted-foreground hover:text-primary transition-colors font-display text-sm tracking-wider">
-              Contatti
+            <a href="mailto:contact@example.com" className="text-muted-foreground hover:text-primary transition-colors font-display text-sm tracking-wider">
+              Contact
             </a>
           </nav>
         </div>
