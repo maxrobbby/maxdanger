@@ -3,24 +3,24 @@ import { Flame, Target, Users } from "lucide-react";
 const features = [
   {
     icon: Flame,
-    title: "Azione Esplosiva",
-    description: "Scene adrenaliniche che ti lasceranno senza fiato, combattimenti serrati e fughe mozzafiato in un mondo post-apocalittico.",
+    title: "Explosive Action",
+    description: "Heart-pounding scenes that will leave you breathless, intense combat and thrilling escapes in a world of danger.",
   },
   {
     icon: Target,
-    title: "Trama Avvincente",
-    description: "Una storia di sopravvivenza, tradimenti e redenzione che ti terrà incollato alle pagine fino all'ultima riga.",
+    title: "Gripping Plot",
+    description: "A story of survival, betrayal and redemption that will keep you glued to the pages until the very last line.",
   },
   {
     icon: Users,
-    title: "Personaggi Indimenticabili",
-    description: "Max Danger e i suoi compagni: eroi imperfetti che lottano per ciò che conta in un mondo che ha perso tutto.",
+    title: "Unforgettable Characters",
+    description: "Max Danger and his companions: imperfect heroes fighting for what matters in a world that has lost everything.",
   },
 ];
 
 const AboutSection = () => {
   return (
-    <section id="libro" className="py-24 bg-card relative overflow-hidden">
+    <section id="book" className="py-24 bg-background relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
@@ -28,10 +28,10 @@ const AboutSection = () => {
       <div className="container px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
-            <span className="text-gradient-fire">Il Romanzo</span>
+            <span className="text-gradient-fire">The Novel</span>
           </h2>
           <p className="text-muted-foreground font-body text-lg max-w-2xl mx-auto">
-            Quando il mondo crolla, alcuni uomini si alzano. Max Danger è uno di loro.
+            When the world crumbles, some men rise. Max Danger is one of them.
           </p>
         </div>
         
@@ -39,7 +39,7 @@ const AboutSection = () => {
           {features.map((feature, index) => (
             <div 
               key={feature.title}
-              className="group p-8 bg-background/50 border border-border hover:border-primary/50 rounded-sm transition-all duration-300 hover:shadow-glow"
+              className="group p-8 bg-card/50 border border-border hover:border-primary/50 rounded-sm transition-all duration-300 hover:shadow-glow"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               <div className="w-14 h-14 rounded-sm bg-gradient-fire flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
@@ -58,11 +58,11 @@ const AboutSection = () => {
         <div className="max-w-3xl mx-auto">
           <blockquote className="text-center">
             <p className="text-xl md:text-2xl font-body italic text-foreground/90 mb-6">
-              "In un mondo ridotto in cenere, Max Danger è l'uomo che tutti temono e che molti cercano. 
-              Ma il vero pericolo non è ciò che lo insegue... è ciò che si nasconde dentro di lui."
+              "In a world reduced to ashes, Max Danger is the man everyone fears and many seek. 
+              But the real danger isn't what's chasing him... it's what lies hidden inside him."
             </p>
             <footer className="text-primary font-display tracking-wider">
-              — Dall'introduzione del romanzo
+              — From the novel's introduction
             </footer>
           </blockquote>
         </div>

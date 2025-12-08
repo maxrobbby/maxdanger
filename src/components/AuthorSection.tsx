@@ -16,7 +16,7 @@ const AuthorSection = () => {
             {/* Author info */}
             <div className="md:col-span-2 text-center md:text-left">
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-                <span className="text-gradient-fire">L'Autore</span>
+                <span className="text-gradient-fire">The Author</span>
               </h2>
               
               <h3 className="text-xl font-display text-foreground mb-4">
@@ -24,10 +24,10 @@ const AuthorSection = () => {
               </h3>
               
               <p className="text-muted-foreground font-body text-lg leading-relaxed mb-6">
-                Appassionato di thriller e action fin dall'infanzia, Massimiliano Roberto ha sempre sognato 
-                di creare storie che tengano i lettori con il fiato sospeso. MAX DANGER è il suo primo romanzo, 
-                nato da anni di passione per la narrativa d'azione e il desiderio di raccontare una storia 
-                che unisca adrenalina ed emozione.
+                Passionate about thrillers and action since childhood, Massimiliano Roberto has always dreamed 
+                of creating stories that keep readers on the edge of their seats. MAX DANGER is his debut novel, 
+                born from years of passion for action fiction and the desire to tell a story 
+                that combines adrenaline and emotion.
               </p>
               
               <div className="flex gap-4 justify-center md:justify-start">
