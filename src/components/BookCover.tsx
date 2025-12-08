@@ -1,4 +1,4 @@
-import bookCover from "@/assets/max-danger-cover.jpg";
+import bookCover from "@/assets/max-danger-cover.png";
 
 const BookCover = () => {
   return (
