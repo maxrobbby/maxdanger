@@ -124,10 +124,10 @@
 
   @keyframes float {
     0%, 100% {
-      transform: translateY(0) rotateY(15deg) rotateX(3deg);
+      transform: translateY(0) rotateY(25deg) rotateX(8deg);
     }
     50% {
-      transform: translateY(-10px) rotateY(15deg) rotateX(3deg);
+      transform: translateY(-12px) rotateY(25deg) rotateX(8deg);
     }
   }
 
