@@ -1,7 +1,7 @@
 import bookCover from "@/assets/max-danger-cover.png";
 
 const BookCover = () => {
-  const spineWidth = 45; // pixels - spine thickness (thick book!)
+  const spineWidth = 90; // pixels - spine thickness (very thick book!)
   const pagesThickness = 40; // pixels - visible pages on right
   
   return (
@@ -34,12 +34,13 @@ const BookCover = () => {
           {/* Spine title */}
           <div className="absolute inset-0 flex items-center justify-center">
             <span 
-              className="text-primary font-display font-bold text-sm tracking-[0.15em] whitespace-nowrap"
+              className="font-display font-bold text-base tracking-[0.15em] whitespace-nowrap"
               style={{ 
                 writingMode: 'vertical-rl', 
                 textOrientation: 'mixed', 
                 transform: 'rotate(180deg)',
-                textShadow: '0 0 10px hsl(32 95% 50% / 0.5)'
+                color: '#FFD700',
+                textShadow: '0 0 15px rgba(255, 215, 0, 0.7), 0 0 30px rgba(255, 215, 0, 0.4)'
               }}
             >
               MAX DANGER
@@ -90,7 +91,7 @@ const BookCover = () => {
             left: 0,
             transform: `translateY(${pagesThickness}px) rotateX(-90deg)`,
             transformOrigin: 'top center',
-            background: 'linear-gradient(to bottom, #f5f5f0, #e8e8e2, #deded8)',
+            background: '#ffffff',
           }}
         >
           {/* Vertical page lines for bottom */}
@@ -101,15 +102,15 @@ const BookCover = () => {
               style={{ 
                 left: `${i * 1}%`,
                 background: i % 6 === 0 
-                  ? 'rgba(80, 70, 60, 0.25)' 
-                  : 'rgba(100, 90, 80, 0.1)'
+                  ? 'rgba(180, 175, 170, 0.4)' 
+                  : 'rgba(200, 195, 190, 0.25)'
               }}
             />
           ))}
-          {/* Bottom shadow */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-stone-400/30" />
+          {/* Subtle shadow at edge */}
+          <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-gray-100" />
           {/* Spine shadow on bottom */}
-          <div className="absolute top-0 bottom-0 left-0 w-3 bg-gradient-to-r from-stone-500/40 to-transparent" />
+          <div className="absolute top-0 bottom-0 left-0 w-4 bg-gradient-to-r from-gray-300/60 to-transparent" />
         </div>
         
         {/* Book back cover */}
