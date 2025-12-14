@@ -34,13 +34,13 @@ const BookCover = () => {
           {/* Spine title */}
           <div className="absolute inset-0 flex items-center justify-center">
             <span 
-              className="font-display font-bold text-base tracking-[0.15em] whitespace-nowrap"
+              className="font-display font-bold text-xl tracking-[0.2em] whitespace-nowrap"
               style={{ 
                 writingMode: 'vertical-rl', 
                 textOrientation: 'mixed', 
                 transform: 'rotate(180deg)',
                 color: '#FFD700',
-                textShadow: '0 0 15px rgba(255, 215, 0, 0.7), 0 0 30px rgba(255, 215, 0, 0.4)'
+                textShadow: '0 0 20px rgba(255, 215, 0, 0.9), 0 0 40px rgba(255, 215, 0, 0.6), 0 2px 4px rgba(0,0,0,0.5)'
               }}
             >
               MAX DANGER
@@ -130,9 +130,10 @@ const BookCover = () => {
             className="w-64 md:w-80 lg:w-96 h-auto"
             style={{
               boxShadow: `
-                25px 30px 60px rgba(0, 0, 0, 0.55),
-                10px 15px 30px rgba(0, 0, 0, 0.35),
-                0 0 100px hsl(32 95% 50% / 0.15)
+                35px 45px 80px rgba(0, 0, 0, 0.7),
+                15px 20px 40px rgba(0, 0, 0, 0.5),
+                5px 8px 20px rgba(0, 0, 0, 0.4),
+                0 0 120px hsl(32 95% 50% / 0.25)
               `,
             }}
           />
