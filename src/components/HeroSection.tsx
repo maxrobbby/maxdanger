@@ -25,7 +25,7 @@ const HeroSection = () => {
               style={{ animationDelay: "0.2s" }}
             >
               <span className="text-lg md:text-xl">Massimiliano Roberto</span>
-              <span className="text-base md:text-lg"> presents</span>
+              <span className="text-sm md:text-base"> presents</span>
             </p>
             
             <h1 
