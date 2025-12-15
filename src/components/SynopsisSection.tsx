@@ -27,7 +27,7 @@ const SynopsisSection = () => {
             <span className="absolute -bottom-8 -right-2 md:-right-8 text-6xl md:text-8xl text-primary/20 font-serif">"</span>
             
             <p className="text-lg md:text-xl lg:text-2xl font-body text-foreground/90 leading-relaxed px-4 md:px-12">
-              Max is a man living between adrenaline and secrets. Between extreme feats and dangerous missions, an unexpected event will change the stakes. A dark world of international intrigue awaits, where survival demands ingenuity, courage, and cold blood. Who is Max really? And how far is he willing to go to protect those who matter? A high‑tension thriller that keeps the reader on the edge of their seat.
+              Max is a man living between adrenaline and secrets. Between extreme feats and dangerous missions, an unexpected event will change the stakes. A dark world of international intrigue awaits, where survival demands ingenuity, courage, and cold blood. Who is Max really? And how far is he willing to go to protect those who matter? A high‑tension action thriller that keeps the reader on the edge of their seat.
             </p>
           </div>
         </div>
