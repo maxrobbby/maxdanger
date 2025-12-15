@@ -21,10 +21,11 @@ const HeroSection = () => {
           {/* Left side - Text */}
           <div className="text-center lg:text-left order-2 lg:order-1">
             <p 
-              className="text-primary font-display text-base md:text-lg tracking-[0.3em] mb-4 opacity-0 animate-fade-up"
+              className="text-primary font-display tracking-[0.3em] mb-4 opacity-0 animate-fade-up"
               style={{ animationDelay: "0.2s" }}
             >
-              Massimiliano Roberto presents
+              <span className="text-lg md:text-xl">Massimiliano Roberto</span>
+              <span className="text-base md:text-lg"> presents</span>
             </p>
             
             <h1 
