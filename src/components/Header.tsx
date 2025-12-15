@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,7 +18,11 @@ const Header = () => {
   }, []);
 
   const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    if (isHomePage) {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.location.href = `/#${id}`;
+    }
     setIsMobileMenuOpen(false);
   };
 
@@ -27,12 +34,12 @@ const Header = () => {
     >
       <div className="container px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <a href="/" className="text-xl md:text-2xl font-display font-bold text-gradient-fire">
+          <Link to="/" className="text-xl md:text-2xl font-display font-bold text-gradient-fire">
             MAX DANGER
-          </a>
+          </Link>
           
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-6">
             <button 
               onClick={() => scrollToSection("synopsis")}
               className="text-foreground/80 hover:text-primary transition-colors font-display text-sm tracking-wider"
@@ -51,6 +58,18 @@ const Header = () => {
             >
               Crowdfunding
             </button>
+            <Link 
+              to="/author"
+              className="text-foreground/80 hover:text-primary transition-colors font-display text-sm tracking-wider"
+            >
+              The Author
+            </Link>
+            <Link 
+              to="/acknowledgments"
+              className="text-foreground/80 hover:text-primary transition-colors font-display text-sm tracking-wider"
+            >
+              Acknowledgments
+            </Link>
             <Button 
               variant="hero" 
               size="sm"
@@ -92,6 +111,20 @@ const Header = () => {
               >
                 Crowdfunding
               </button>
+              <Link 
+                to="/author"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-foreground/80 hover:text-primary transition-colors font-display text-sm tracking-wider text-left py-2"
+              >
+                The Author
+              </Link>
+              <Link 
+                to="/acknowledgments"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-foreground/80 hover:text-primary transition-colors font-display text-sm tracking-wider text-left py-2"
+              >
+                Acknowledgments
+              </Link>
               <Button 
                 variant="hero" 
                 onClick={() => scrollToSection("crowdfunding")}
