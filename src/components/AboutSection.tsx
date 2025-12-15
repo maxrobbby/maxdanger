@@ -31,7 +31,7 @@ const AboutSection = () => {
             <span className="text-gradient-fire">The Novel</span>
           </h2>
           <p className="text-muted-foreground font-body text-lg max-w-2xl mx-auto">
-            When the world crumbles, some men rise. Max Danger is one of them.
+            When what you must save has no price, everything is at stake. Faced with danger, many flee. Only a few stand their ground. Among them is a man at ease in danger. And he masters it.
           </p>
         </div>
         
