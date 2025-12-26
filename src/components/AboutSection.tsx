@@ -47,7 +47,7 @@ const AboutSection = () => {
                 <div className="absolute inset-0 bg-primary/10 rounded-sm blur-xl" />
                 
                 {/* Video container */}
-                <div className="relative w-[320px] sm:w-[480px] md:w-[640px] aspect-video bg-zinc-950 rounded-sm overflow-hidden">
+                <div className="relative w-[224px] sm:w-[336px] md:w-[448px] aspect-video bg-zinc-950 rounded-sm overflow-hidden">
                   <video 
                     src={parkourVideo}
                     autoPlay 
