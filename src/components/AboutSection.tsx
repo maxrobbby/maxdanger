@@ -1,4 +1,5 @@
 import { Flame, Target, Users } from "lucide-react";
+import parkourVideo from "@/assets/max-danger-parkour.mp4";
 
 const features = [
   {
@@ -33,6 +34,49 @@ const AboutSection = () => {
           <p className="text-muted-foreground font-body text-lg max-w-2xl mx-auto">
             When what you must save has no price, everything is at stake. Faced with danger, many flee. Only a few stand their ground. Among them is a man at ease in danger. And he masters it.
           </p>
+        </div>
+
+        {/* TV Frame with Video */}
+        <div className="flex justify-center mb-16">
+          <div className="relative">
+            {/* TV Frame */}
+            <div className="relative bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 p-4 rounded-lg shadow-2xl">
+              {/* TV Screen bezel */}
+              <div className="relative bg-black p-2 rounded-sm">
+                {/* Screen glow effect */}
+                <div className="absolute inset-0 bg-primary/10 rounded-sm blur-xl" />
+                
+                {/* Video container */}
+                <div className="relative w-[320px] sm:w-[480px] md:w-[640px] aspect-video bg-zinc-950 rounded-sm overflow-hidden">
+                  <video 
+                    src={parkourVideo}
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline
+                    className="w-full h-full object-cover"
+                  />
+                  {/* Scanline effect */}
+                  <div className="absolute inset-0 pointer-events-none bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,0,0,0.1)_2px,rgba(0,0,0,0.1)_4px)]" />
+                  {/* Screen reflection */}
+                  <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-white/5 via-transparent to-transparent" />
+                </div>
+              </div>
+              
+              {/* TV Stand */}
+              <div className="flex justify-center mt-3">
+                <div className="w-24 h-2 bg-gradient-to-r from-zinc-800 via-zinc-600 to-zinc-800 rounded-full" />
+              </div>
+            </div>
+            
+            {/* TV Base/Foot */}
+            <div className="flex justify-center">
+              <div className="w-16 h-4 bg-gradient-to-b from-zinc-700 to-zinc-900 rounded-b-lg" />
+            </div>
+            <div className="flex justify-center">
+              <div className="w-32 h-2 bg-gradient-to-b from-zinc-800 to-zinc-950 rounded-b-lg shadow-lg" />
+            </div>
+          </div>
         </div>
         
         <div className="grid md:grid-cols-3 gap-8 mb-16">
