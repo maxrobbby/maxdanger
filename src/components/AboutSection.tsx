@@ -1,11 +1,5 @@
 import { Flame, Target, Users } from "lucide-react";
-import { useRef, useState, useEffect } from "react";
-import trailerPart1 from "@/assets/trailer-part1.mp4";
-import trailerPart2 from "@/assets/trailer-part2.mp4";
-import trailerPart3 from "@/assets/trailer-part3.mp4";
-import bookCover from "@/assets/max-danger-cover.png";
-
-const trailerParts = [trailerPart1, trailerPart2, trailerPart3];
+import ModernTVPlayer from "./ModernTVPlayer";
 
 const features = [
   {
@@ -26,48 +20,6 @@ const features = [
 ];
 
 const AboutSection = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [currentPart, setCurrentPart] = useState(0);
-  const [showCover, setShowCover] = useState(false);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const handleEnded = () => {
-      if (currentPart < trailerParts.length - 1) {
-        // Transition to next part
-        setIsTransitioning(true);
-        setTimeout(() => {
-          setCurrentPart(prev => prev + 1);
-          setIsTransitioning(false);
-        }, 300);
-      } else {
-        // Show cover at the end, then loop
-        setIsTransitioning(true);
-        setTimeout(() => {
-          setShowCover(true);
-          setTimeout(() => {
-            setShowCover(false);
-            setCurrentPart(0);
-            setIsTransitioning(false);
-          }, 3000);
-        }, 300);
-      }
-    };
-
-    video.addEventListener('ended', handleEnded);
-    return () => video.removeEventListener('ended', handleEnded);
-  }, [currentPart]);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (video && !showCover) {
-      video.load();
-      video.play().catch(() => {});
-    }
-  }, [currentPart, showCover]);
 
   return (
     <section id="book" className="py-24 bg-background relative overflow-hidden">
@@ -85,59 +37,10 @@ const AboutSection = () => {
           </p>
         </div>
 
-        {/* Cinematic Trailer Player */}
+        {/* Modern TV Player */}
         <div className="flex justify-center mb-16">
-          <div className="relative w-full max-w-4xl">
-            {/* Cinematic frame */}
-            <div className="relative bg-black rounded-lg overflow-hidden shadow-[0_0_60px_rgba(234,88,12,0.3)]">
-              {/* Letterbox bars for cinematic feel */}
-              <div className="absolute top-0 left-0 right-0 h-[8%] bg-black z-10" />
-              <div className="absolute bottom-0 left-0 right-0 h-[8%] bg-black z-10" />
-              
-              {/* Video/Cover container */}
-              <div className={`aspect-video transition-opacity duration-500 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
-                {showCover ? (
-                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-b from-zinc-900 to-black">
-                    <img 
-                      src={bookCover} 
-                      alt="Max Danger - Book Cover" 
-                      className="h-[80%] object-contain animate-scale-in shadow-2xl"
-                    />
-                  </div>
-                ) : (
-                  <video 
-                    ref={videoRef}
-                    src={trailerParts[currentPart]}
-                    autoPlay 
-                    muted 
-                    playsInline
-                    className="w-full h-full object-cover"
-                  />
-                )}
-              </div>
-
-              {/* Film grain overlay */}
-              <div className="absolute inset-0 pointer-events-none opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iMC4xIi8+PC9zdmc+')]" />
-              
-              {/* Vignette effect */}
-              <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,transparent_50%,rgba(0,0,0,0.5)_100%)]" />
-            </div>
-
-            {/* Progress indicator */}
-            <div className="flex justify-center gap-2 mt-4">
-              {trailerParts.map((_, index) => (
-                <div 
-                  key={index}
-                  className={`h-1 w-12 rounded-full transition-all duration-300 ${
-                    index === currentPart && !showCover
-                      ? 'bg-primary' 
-                      : index < currentPart || showCover
-                        ? 'bg-primary/50'
-                        : 'bg-muted'
-                  }`}
-                />
-              ))}
-            </div>
+          <div className="w-full max-w-4xl">
+            <ModernTVPlayer />
           </div>
         </div>
         
