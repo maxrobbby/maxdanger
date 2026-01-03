@@ -1,25 +1,27 @@
 import { Flame, Target, Users } from "lucide-react";
 import ModernTVPlayer from "./ModernTVPlayer";
-
-const features = [
-  {
-    icon: Flame,
-    title: "Explosive Action",
-    description: "Heart-pounding scenes that will leave you breathless, intense combat and thrilling escapes in a world of danger.",
-  },
-  {
-    icon: Target,
-    title: "Gripping Plot",
-    description: "A story of survival, betrayal and redemption that will keep you glued to the pages until the very last line.",
-  },
-  {
-    icon: Users,
-    title: "Unforgettable Characters",
-    description: "Max Danger and his companions: imperfect heroes fighting for what matters in a world that has lost everything.",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const AboutSection = () => {
+  const { t } = useLanguage();
+
+  const features = [
+    {
+      icon: Flame,
+      title: t('explosiveAction'),
+      description: t('explosiveActionDesc'),
+    },
+    {
+      icon: Target,
+      title: t('grippingPlot'),
+      description: t('grippingPlotDesc'),
+    },
+    {
+      icon: Users,
+      title: t('unforgettableCharacters'),
+      description: t('unforgettableCharactersDesc'),
+    },
+  ];
 
   return (
     <section id="book" className="py-24 bg-background relative overflow-hidden">
@@ -30,10 +32,10 @@ const AboutSection = () => {
       <div className="container px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
-            <span className="text-gradient-fire">Official Trailer</span>
+            <span className="text-gradient-fire">{t('officialTrailer')}</span>
           </h2>
           <p className="text-muted-foreground font-body text-lg max-w-2xl mx-auto">
-            When what you must save has no price, everything is at stake. Faced with danger, many flee. Only a few stand their ground. Among them is a man at ease in danger. And he masters it.
+            {t('trailerDescription')}
           </p>
         </div>
 
@@ -67,11 +69,10 @@ const AboutSection = () => {
         <div className="max-w-3xl mx-auto">
           <blockquote className="text-center">
             <p className="text-xl md:text-2xl font-body italic text-foreground/90 mb-6">
-              "In a world reduced to ashes, Max Danger is the man everyone fears and many seek. 
-              But the real danger isn't what's chasing him... it's what lies hidden inside him."
+              {t('bookQuote')}
             </p>
             <footer className="text-primary font-display tracking-wider">
-              — From the novel's introduction
+              {t('fromIntroduction')}
             </footer>
           </blockquote>
         </div>

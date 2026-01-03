@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Eye } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
   const [visitCount, setVisitCount] = useState(0);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const storedCount = localStorage.getItem("visitCount");
@@ -20,26 +22,26 @@ const Footer = () => {
               MAX DANGER
             </h3>
             <p className="text-muted-foreground text-sm">
-              © 2025 Massimiliano Roberto. All rights reserved.
+              © 2025 Massimiliano Roberto. {t('allRightsReserved')}
             </p>
           </div>
           
           <nav className="flex gap-8">
             <a href="#book" className="text-muted-foreground hover:text-primary transition-colors font-display text-sm tracking-wider">
-              The Book
+              {t('theBook')}
             </a>
             <a href="#crowdfunding" className="text-muted-foreground hover:text-primary transition-colors font-display text-sm tracking-wider">
-              Crowdfunding
+              {t('crowdfunding')}
             </a>
             <a href="mailto:contact@example.com" className="text-muted-foreground hover:text-primary transition-colors font-display text-sm tracking-wider">
-              Contact
+              {t('contact')}
             </a>
           </nav>
           
           <div className="flex items-center gap-2 text-muted-foreground">
             <Eye className="w-4 h-4" />
             <span className="text-sm font-display tracking-wider">
-              {visitCount.toLocaleString()} visite
+              {visitCount.toLocaleString()} {t('visits')}
             </span>
           </div>
         </div>

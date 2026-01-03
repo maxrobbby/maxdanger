@@ -2,12 +2,15 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
+import LanguageSelector from "./LanguageSelector";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const isHomePage = location.pathname === "/";
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,38 +47,39 @@ const Header = () => {
               onClick={() => scrollToSection("synopsis")}
               className="text-foreground/80 hover:text-primary transition-colors font-display text-sm tracking-wider"
             >
-              Synopsis
+              {t('synopsis')}
             </button>
             <button 
               onClick={() => scrollToSection("book")}
               className="text-foreground/80 hover:text-primary transition-colors font-display text-sm tracking-wider"
             >
-              The Book
+              {t('theBook')}
             </button>
             <button 
               onClick={() => scrollToSection("crowdfunding")}
               className="text-foreground/80 hover:text-primary transition-colors font-display text-sm tracking-wider"
             >
-              Crowdfunding
+              {t('crowdfunding')}
             </button>
             <Link 
               to="/author"
               className="text-foreground/80 hover:text-primary transition-colors font-display text-sm tracking-wider"
             >
-              The Author
+              {t('theAuthor')}
             </Link>
             <Link 
               to="/acknowledgments"
               className="text-foreground/80 hover:text-primary transition-colors font-display text-sm tracking-wider"
             >
-              Acknowledgments
+              {t('acknowledgments')}
             </Link>
+            <LanguageSelector />
             <Button 
               variant="hero" 
               size="sm"
               onClick={() => scrollToSection("crowdfunding")}
             >
-              Support Now
+              {t('supportNow')}
             </Button>
           </nav>
           
@@ -97,39 +101,42 @@ const Header = () => {
                 onClick={() => scrollToSection("synopsis")}
                 className="text-foreground/80 hover:text-primary transition-colors font-display text-sm tracking-wider text-left py-2"
               >
-                Synopsis
+                {t('synopsis')}
               </button>
               <button 
                 onClick={() => scrollToSection("book")}
                 className="text-foreground/80 hover:text-primary transition-colors font-display text-sm tracking-wider text-left py-2"
               >
-                The Book
+                {t('theBook')}
               </button>
               <button 
                 onClick={() => scrollToSection("crowdfunding")}
                 className="text-foreground/80 hover:text-primary transition-colors font-display text-sm tracking-wider text-left py-2"
               >
-                Crowdfunding
+                {t('crowdfunding')}
               </button>
               <Link 
                 to="/author"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-foreground/80 hover:text-primary transition-colors font-display text-sm tracking-wider text-left py-2"
               >
-                The Author
+                {t('theAuthor')}
               </Link>
               <Link 
                 to="/acknowledgments"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-foreground/80 hover:text-primary transition-colors font-display text-sm tracking-wider text-left py-2"
               >
-                Acknowledgments
+                {t('acknowledgments')}
               </Link>
+              <div className="py-2">
+                <LanguageSelector />
+              </div>
               <Button 
                 variant="hero" 
                 onClick={() => scrollToSection("crowdfunding")}
               >
-                Support Now
+                {t('supportNow')}
               </Button>
             </div>
           </nav>

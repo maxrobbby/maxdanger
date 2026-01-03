@@ -1,4 +1,8 @@
+import { useLanguage } from "@/contexts/LanguageContext";
+
 const AuthorSection = () => {
+  const { t } = useLanguage();
+  
   return (
     <section className="py-24 bg-card relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
@@ -16,7 +20,7 @@ const AuthorSection = () => {
             {/* Author info */}
             <div className="md:col-span-2 text-center md:text-left">
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-                <span className="text-gradient-fire">The Author</span>
+                <span className="text-gradient-fire">{t('authorTitle')}</span>
               </h2>
               
               <h3 className="text-xl font-display text-foreground mb-4">
@@ -24,10 +28,7 @@ const AuthorSection = () => {
               </h3>
               
               <p className="text-muted-foreground font-body text-lg leading-relaxed mb-6">
-                Passionate about thrillers and action since childhood, Massimiliano Roberto has always dreamed 
-                of creating stories that keep readers on the edge of their seats. MAX DANGER is his debut novel, 
-                born from years of passion for action fiction and the desire to tell a story 
-                that combines adrenaline and emotion.
+                {t('authorBio')}
               </p>
               
               <div className="flex gap-4 justify-center md:justify-start">
