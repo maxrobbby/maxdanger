@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import BookCover from "./BookCover";
 import { ChevronDown } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const HeroSection = () => {
+  const { t } = useLanguage();
+  
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
@@ -25,7 +28,7 @@ const HeroSection = () => {
               style={{ animationDelay: "0.2s" }}
             >
               <span className="text-lg md:text-xl">Massimiliano Roberto</span>
-              <span className="text-sm md:text-base"> presents</span>
+              <span className="text-sm md:text-base"> {t('presents')}</span>
             </p>
             
             <h1 
@@ -45,7 +48,7 @@ const HeroSection = () => {
               className="text-lg md:text-xl text-muted-foreground font-body italic mb-8 max-w-xl mx-auto lg:mx-0 opacity-0 animate-fade-up"
               style={{ animationDelay: "0.7s" }}
             >
-              When a man has nothing left to lose and decides to take action, it's best not to get in his way. A breathtaking action thriller that will keep you turning pages until the very last line.
+              {t('heroDescription')}
             </p>
             
             <div 
@@ -57,14 +60,14 @@ const HeroSection = () => {
                 size="xl"
                 onClick={() => scrollToSection("crowdfunding")}
               >
-                Support the Crowdfunding
+                {t('supportCrowdfunding')}
               </Button>
               <Button 
                 variant="heroOutline" 
                 size="xl"
                 onClick={() => scrollToSection("synopsis")}
               >
-                Discover More
+                {t('discoverMore')}
               </Button>
             </div>
             
@@ -74,12 +77,12 @@ const HeroSection = () => {
             >
               <div className="text-center">
                 <p className="text-2xl font-display text-primary">2026</p>
-                <p className="text-xs uppercase tracking-wider">Coming Soon</p>
+                <p className="text-xs uppercase tracking-wider">{t('comingSoon')}</p>
               </div>
               <div className="w-px h-10 bg-border" />
               <div className="text-center">
-                <p className="text-2xl font-display text-primary">Thriller</p>
-                <p className="text-xs uppercase tracking-wider">Action</p>
+                <p className="text-2xl font-display text-primary">{t('thriller')}</p>
+                <p className="text-xs uppercase tracking-wider">{t('action')}</p>
               </div>
             </div>
           </div>

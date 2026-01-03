@@ -1,32 +1,35 @@
 import { Button } from "@/components/ui/button";
 import { Gift, BookOpen, Star, Crown } from "lucide-react";
-
-const tiers = [
-  {
-    icon: BookOpen,
-    name: "Reader",
-    price: "€15",
-    description: "A digital copy of the novel",
-    features: ["eBook in ePub and PDF format", "Early access to reading", "Acknowledgment in the book"],
-  },
-  {
-    icon: Star,
-    name: "Supporter",
-    price: "€30",
-    description: "Paperback + digital copy",
-    features: ["Signed paperback", "eBook in all formats", "Exclusive bookmark", "Special acknowledgment"],
-    popular: true,
-  },
-  {
-    icon: Crown,
-    name: "Patron",
-    price: "€75",
-    description: "Collector's edition",
-    features: ["Limited numbered edition", "Cover poster", "Your name in the novel", "All previous bonuses"],
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const CrowdfundingSection = () => {
+  const { t } = useLanguage();
+
+  const tiers = [
+    {
+      icon: BookOpen,
+      name: t('reader'),
+      price: "€15",
+      description: t('readerDesc'),
+      features: [t('readerFeature1'), t('readerFeature2'), t('readerFeature3')],
+    },
+    {
+      icon: Star,
+      name: t('supporter'),
+      price: "€30",
+      description: t('supporterDesc'),
+      features: [t('supporterFeature1'), t('supporterFeature2'), t('supporterFeature3'), t('supporterFeature4')],
+      popular: true,
+    },
+    {
+      icon: Crown,
+      name: t('patron'),
+      price: "€75",
+      description: t('patronDesc'),
+      features: [t('patronFeature1'), t('patronFeature2'), t('patronFeature3'), t('patronFeature4')],
+    },
+  ];
+
   return (
     <section id="crowdfunding" className="py-24 bg-background relative">
       {/* Background effect */}
@@ -36,14 +39,14 @@ const CrowdfundingSection = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-sm mb-6">
             <Gift className="w-4 h-4 text-primary" />
-            <span className="text-primary font-display text-sm tracking-wider">Crowdfunding Active</span>
+            <span className="text-primary font-display text-sm tracking-wider">{t('crowdfundingActive')}</span>
           </div>
           
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
-            Support <span className="text-gradient-fire">MAX DANGER</span>
+            {t('support')} <span className="text-gradient-fire">MAX DANGER</span>
           </h2>
           <p className="text-muted-foreground font-body text-lg max-w-2xl mx-auto">
-            Become part of this adventure. Choose your support level and help me bring Max Danger to bookstores.
+            {t('crowdfundingDescription')}
           </p>
         </div>
         
@@ -59,7 +62,7 @@ const CrowdfundingSection = () => {
             >
               {tier.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-fire text-primary-foreground text-xs font-display tracking-wider rounded-sm">
-                  Most Popular
+                  {t('mostPopular')}
                 </div>
               )}
               
@@ -87,7 +90,7 @@ const CrowdfundingSection = () => {
                 className="w-full"
                 size="lg"
               >
-                Choose {tier.name}
+                {t('choose')} {tier.name}
               </Button>
             </div>
           ))}
@@ -95,7 +98,7 @@ const CrowdfundingSection = () => {
         
         <div className="mt-16 text-center">
           <p className="text-muted-foreground font-body mb-4">
-            Have questions about the crowdfunding? Contact me directly.
+            {t('crowdfundingQuestions')}
           </p>
           <a 
             href="mailto:contact@example.com" 

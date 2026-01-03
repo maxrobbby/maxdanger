@@ -1,6 +1,9 @@
 import { BookOpen } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const SynopsisSection = () => {
+  const { t } = useLanguage();
+  
   return (
     <section id="synopsis" className="py-24 bg-card relative overflow-hidden">
       {/* Decorative elements */}
@@ -14,11 +17,11 @@ const SynopsisSection = () => {
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-sm mb-8">
             <BookOpen className="w-4 h-4 text-primary" />
-            <span className="text-primary font-display text-sm tracking-wider">The Story</span>
+            <span className="text-primary font-display text-sm tracking-wider">{t('theStory')}</span>
           </div>
           
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-8">
-            <span className="text-gradient-fire">Synopsis</span>
+            <span className="text-gradient-fire">{t('synopsisTitle')}</span>
           </h2>
           
           <div className="relative">
@@ -27,7 +30,7 @@ const SynopsisSection = () => {
             <span className="absolute -bottom-8 -right-2 md:-right-8 text-6xl md:text-8xl text-primary/20 font-serif">"</span>
             
             <p className="text-lg md:text-xl lg:text-2xl font-body text-foreground/90 leading-relaxed px-4 md:px-12">
-              Max is a man living between adrenaline and secrets. Between extreme feats and dangerous missions, an unexpected event will change the stakes. A dark world of international intrigue awaits, where survival demands ingenuity, courage, and cold blood. Who is Max really? And how far is he willing to go to protect those who matter? A high‑tension action thriller that keeps the reader on the edge of their seat.
+              {t('synopsisText')}
             </p>
           </div>
         </div>
