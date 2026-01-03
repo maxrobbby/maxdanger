@@ -1,4 +1,16 @@
+import { useEffect, useState } from "react";
+import { Eye } from "lucide-react";
+
 const Footer = () => {
+  const [visitCount, setVisitCount] = useState(0);
+
+  useEffect(() => {
+    const storedCount = localStorage.getItem("visitCount");
+    const newCount = storedCount ? parseInt(storedCount) + 1 : 1;
+    localStorage.setItem("visitCount", newCount.toString());
+    setVisitCount(newCount);
+  }, []);
+
   return (
     <footer className="py-12 bg-background border-t border-border">
       <div className="container px-4">
@@ -23,6 +35,13 @@ const Footer = () => {
               Contact
             </a>
           </nav>
+          
+          <div className="flex items-center gap-2 text-muted-foreground">
+            <Eye className="w-4 h-4" />
+            <span className="text-sm font-display tracking-wider">
+              {visitCount.toLocaleString()} visite
+            </span>
+          </div>
         </div>
       </div>
     </footer>
