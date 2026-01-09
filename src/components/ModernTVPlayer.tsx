@@ -12,7 +12,7 @@ const ModernTVPlayer = () => {
   }, []);
 
   return (
-    <div className="relative inline-block">
+    <div className="relative mx-auto w-fit">
       {/* TV Frame - Modern Samsung/LG style */}
       <div className="relative bg-gradient-to-b from-zinc-800 via-zinc-900 to-black rounded-[3px] p-[3px] shadow-[0_25px_80px_-20px_rgba(0,0,0,0.8)]">
         {/* Inner bezel */}
