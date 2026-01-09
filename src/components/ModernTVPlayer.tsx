@@ -1,5 +1,5 @@
 import { useRef, useEffect } from "react";
-import parkourVideo from "@/assets/max-danger-parkour.mp4";
+import officialTrailer from "@/assets/official-trailer.mp4";
 
 const ModernTVPlayer = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -23,7 +23,7 @@ const ModernTVPlayer = () => {
             <div className="relative bg-black overflow-hidden">
               <video
                 ref={videoRef}
-                src={parkourVideo}
+                src={officialTrailer}
                 autoPlay
                 loop
                 muted
