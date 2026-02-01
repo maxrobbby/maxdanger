@@ -196,22 +196,19 @@ const BookCover = () => {
             {/* Text content */}
             <div 
               className="absolute inset-0 flex flex-col items-center justify-center font-display text-center"
-              style={{ paddingTop: '2px' }}
             >
               <span 
-                className="text-[9px] md:text-[10px] font-black tracking-tight leading-none"
+                className="text-base md:text-lg font-black tracking-tight leading-none uppercase"
                 style={{ 
-                  color: '#991b1b',
-                  textShadow: '0 1px 0 rgba(255,255,255,0.3)',
+                  color: '#000000',
                 }}
               >
                 COMING SOON
               </span>
               <span 
-                className="text-[11px] md:text-xs font-black tracking-tight leading-tight mt-0.5"
+                className="text-lg md:text-xl font-black tracking-tight leading-tight mt-1"
                 style={{ 
-                  color: '#7f1d1d',
-                  textShadow: '0 1px 0 rgba(255,255,255,0.4)',
+                  color: '#000000',
                 }}
               >
                 Free Preview
