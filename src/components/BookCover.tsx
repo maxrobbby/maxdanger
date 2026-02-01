@@ -148,11 +148,11 @@ const BookCover = () => {
           
           {/* Coming Soon Starburst Badge */}
           <div 
-            className="absolute -bottom-6 -right-6 md:-bottom-8 md:-right-8 z-10"
+            className="absolute -bottom-12 -right-10 md:-bottom-16 md:-right-12 z-10"
             style={{
               transform: 'rotate(-15deg)',
-              width: '100px',
-              height: '100px',
+              width: '200px',
+              height: '200px',
             }}
           >
             {/* Starburst SVG Background */}
