@@ -1,16 +1,23 @@
+import { useState } from "react";
 import bookCover from "@/assets/max-danger-cover.png";
 
 const BookCover = () => {
-  const spineWidth = 90; // pixels - spine thickness (very thick book!)
-  const pagesThickness = 40; // pixels - visible pages on right
+  const [isOpen, setIsOpen] = useState(false);
+  const spineWidth = 90;
+  const pagesThickness = 40;
+  
+  const toggleBook = () => {
+    setIsOpen(!isOpen);
+  };
   
   return (
     <div className="book-container" style={{ perspective: '1800px' }}>
       <div 
-        className="book-3d animate-float relative"
+        className={`book-3d relative ${isOpen ? '' : 'animate-float'}`}
         style={{ 
           transformStyle: 'preserve-3d', 
-          transform: 'rotateY(25deg) rotateX(8deg)',
+          transform: isOpen ? 'rotateY(0deg) rotateX(5deg)' : 'rotateY(25deg) rotateX(8deg)',
+          transition: 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
         }}
       >
         {/* Book spine - left side */}
@@ -113,6 +120,35 @@ const BookCover = () => {
           <div className="absolute top-0 bottom-0 left-0 w-4 bg-gradient-to-r from-gray-300/60 to-transparent" />
         </div>
         
+        {/* Inner pages (visible when open) */}
+        <div 
+          className="absolute top-0 left-0 w-64 md:w-80 lg:w-96 h-full"
+          style={{ 
+            transform: `translateZ(-2px)`,
+            background: 'linear-gradient(to right, #e8e6e0, #fafaf8 10%, #ffffff 50%, #fafaf8 90%, #f0f0ea)',
+            opacity: isOpen ? 1 : 0,
+            transition: 'opacity 0.4s ease',
+          }}
+        >
+          {/* Page texture lines */}
+          <div className="absolute inset-4 flex flex-col justify-start gap-3 pt-8">
+            {[...Array(20)].map((_, i) => (
+              <div 
+                key={i} 
+                className="h-px w-full"
+                style={{ 
+                  background: 'rgba(100, 90, 80, 0.15)',
+                  width: i % 3 === 0 ? '85%' : i % 2 === 0 ? '70%' : '90%',
+                }}
+              />
+            ))}
+          </div>
+          {/* Page curl shadow */}
+          <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-stone-300/40 to-transparent" />
+          {/* Center fold shadow */}
+          <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-4 bg-gradient-to-r from-transparent via-stone-200/30 to-transparent" />
+        </div>
+        
         {/* Book back cover */}
         <div 
           className="absolute top-0 left-0 w-64 md:w-80 lg:w-96 h-full"
@@ -122,19 +158,29 @@ const BookCover = () => {
           }}
         />
         
-        {/* Book cover - front */}
-        <div className="relative">
+        {/* Book cover - front (opens like a door) */}
+        <div 
+          className="relative origin-left"
+          style={{
+            transformStyle: 'preserve-3d',
+            transform: isOpen ? 'rotateY(-160deg)' : 'rotateY(0deg)',
+            transition: 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
+          }}
+        >
           <img
             src={bookCover}
             alt="MAX DANGER - Book cover of the action thriller by Massimiliano Roberto"
             className="w-64 md:w-80 lg:w-96 h-auto"
             style={{
-              boxShadow: `
-                35px 45px 80px rgba(0, 0, 0, 0.7),
-                15px 20px 40px rgba(0, 0, 0, 0.5),
-                5px 8px 20px rgba(0, 0, 0, 0.4),
-                0 0 120px hsl(32 95% 50% / 0.25)
-              `,
+              boxShadow: isOpen 
+                ? '10px 10px 30px rgba(0, 0, 0, 0.5)'
+                : `
+                  35px 45px 80px rgba(0, 0, 0, 0.7),
+                  15px 20px 40px rgba(0, 0, 0, 0.5),
+                  5px 8px 20px rgba(0, 0, 0, 0.4),
+                  0 0 120px hsl(32 95% 50% / 0.25)
+                `,
+              transition: 'box-shadow 0.5s ease',
             }}
           />
           
@@ -146,14 +192,26 @@ const BookCover = () => {
             }}
           />
           
-          {/* Coming Soon Starburst Badge */}
+          {/* Back of front cover (visible when open) */}
           <div 
-            className="absolute -bottom-12 -right-10 md:-bottom-16 md:-right-12 z-10"
+            className="absolute inset-0 backface-hidden"
+            style={{
+              transform: 'rotateY(180deg)',
+              backfaceVisibility: 'hidden',
+              background: 'linear-gradient(to right, hsl(25 60% 25%), hsl(20 50% 20%))',
+            }}
+          />
+          
+          {/* Coming Soon Starburst Badge */}
+          <button 
+            onClick={toggleBook}
+            className="absolute -bottom-12 -right-10 md:-bottom-16 md:-right-12 z-10 cursor-pointer hover:scale-110 transition-transform duration-300"
             style={{
               transform: 'rotate(-15deg)',
               width: '200px',
               height: '200px',
             }}
+            aria-label={isOpen ? "Close book preview" : "Open book preview"}
           >
             {/* Starburst SVG Background */}
             <svg 
@@ -203,7 +261,7 @@ const BookCover = () => {
                   color: '#000000',
                 }}
               >
-                COMING SOON
+                {isOpen ? 'CLOSE' : 'COMING SOON'}
               </span>
               <span 
                 className="text-lg md:text-xl font-black tracking-tight leading-tight mt-1"
@@ -211,10 +269,10 @@ const BookCover = () => {
                   color: '#000000',
                 }}
               >
-                Free Preview
+                {isOpen ? 'Preview' : 'Free Preview'}
               </span>
             </div>
-          </div>
+          </button>
         </div>
       </div>
     </div>
