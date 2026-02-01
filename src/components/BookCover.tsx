@@ -146,27 +146,76 @@ const BookCover = () => {
             }}
           />
           
-          {/* Coming Soon Badge */}
+          {/* Coming Soon Starburst Badge */}
           <div 
-            className="absolute -bottom-4 -right-4 md:-bottom-5 md:-right-5 z-10"
+            className="absolute -bottom-6 -right-6 md:-bottom-8 md:-right-8 z-10"
             style={{
-              transform: 'rotate(12deg)',
+              transform: 'rotate(-15deg)',
+              width: '100px',
+              height: '100px',
             }}
           >
-            <div 
-              className="relative px-3 py-2 md:px-4 md:py-2.5 font-display font-bold text-center uppercase"
+            {/* Starburst SVG Background */}
+            <svg 
+              viewBox="0 0 100 100" 
+              className="absolute inset-0 w-full h-full drop-shadow-lg"
               style={{
-                background: 'linear-gradient(135deg, hsl(0 85% 50%) 0%, hsl(15 90% 45%) 50%, hsl(0 75% 40%) 100%)',
-                boxShadow: '0 4px 20px rgba(220, 38, 38, 0.6), 0 2px 8px rgba(0,0,0,0.4)',
-                clipPath: 'polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%)',
+                filter: 'drop-shadow(0 4px 12px rgba(220, 38, 38, 0.7))',
               }}
             >
-              <div className="text-[10px] md:text-xs tracking-wider text-white/90 leading-tight">
+              <defs>
+                <linearGradient id="starburstGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#fbbf24" />
+                  <stop offset="30%" stopColor="#f59e0b" />
+                  <stop offset="70%" stopColor="#ea580c" />
+                  <stop offset="100%" stopColor="#dc2626" />
+                </linearGradient>
+                <linearGradient id="innerGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#fef3c7" />
+                  <stop offset="100%" stopColor="#fbbf24" />
+                </linearGradient>
+              </defs>
+              {/* Outer starburst */}
+              <polygon 
+                points="50,0 58,35 95,20 68,45 100,50 68,55 95,80 58,65 50,100 42,65 5,80 32,55 0,50 32,45 5,20 42,35"
+                fill="url(#starburstGradient)"
+                stroke="#b91c1c"
+                strokeWidth="1"
+              />
+              {/* Inner circle */}
+              <circle 
+                cx="50" 
+                cy="50" 
+                r="28" 
+                fill="url(#innerGlow)"
+                stroke="#dc2626"
+                strokeWidth="2"
+              />
+            </svg>
+            
+            {/* Text content */}
+            <div 
+              className="absolute inset-0 flex flex-col items-center justify-center font-display text-center"
+              style={{ paddingTop: '2px' }}
+            >
+              <span 
+                className="text-[9px] md:text-[10px] font-black tracking-tight leading-none"
+                style={{ 
+                  color: '#991b1b',
+                  textShadow: '0 1px 0 rgba(255,255,255,0.3)',
+                }}
+              >
                 COMING SOON
-              </div>
-              <div className="text-xs md:text-sm tracking-wide text-white font-black leading-tight">
+              </span>
+              <span 
+                className="text-[11px] md:text-xs font-black tracking-tight leading-tight mt-0.5"
+                style={{ 
+                  color: '#7f1d1d',
+                  textShadow: '0 1px 0 rgba(255,255,255,0.4)',
+                }}
+              >
                 Free Preview
-              </div>
+              </span>
             </div>
           </div>
         </div>
