@@ -145,6 +145,30 @@ const BookCover = () => {
               background: 'linear-gradient(130deg, rgba(255,255,255,0.15) 0%, transparent 40%, transparent 60%, rgba(0,0,0,0.08) 100%)',
             }}
           />
+          
+          {/* Coming Soon Badge */}
+          <div 
+            className="absolute -bottom-4 -right-4 md:-bottom-5 md:-right-5 z-10"
+            style={{
+              transform: 'rotate(12deg)',
+            }}
+          >
+            <div 
+              className="relative px-3 py-2 md:px-4 md:py-2.5 font-display font-bold text-center uppercase"
+              style={{
+                background: 'linear-gradient(135deg, hsl(0 85% 50%) 0%, hsl(15 90% 45%) 50%, hsl(0 75% 40%) 100%)',
+                boxShadow: '0 4px 20px rgba(220, 38, 38, 0.6), 0 2px 8px rgba(0,0,0,0.4)',
+                clipPath: 'polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%)',
+              }}
+            >
+              <div className="text-[10px] md:text-xs tracking-wider text-white/90 leading-tight">
+                COMING SOON
+              </div>
+              <div className="text-xs md:text-sm tracking-wide text-white font-black leading-tight">
+                Free Preview
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
